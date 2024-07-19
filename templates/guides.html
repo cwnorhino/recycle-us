@@ -5,12 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/guides.css') }}">
 </head>
 
 <body>
-    <h1>Guides</h1>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <div class="container">
+        <h1>Recycling Guides</h1>
+
+        <div class="guide-list">
+            <div class="guide-item">
+                <h2>Paper and Cardboard</h2>
+                <p>Recycle clean paper and cardboard. Remove any plastic wrapping or tape.</p>
+                <ul>
+                    <li>Newspapers and magazines</li>
+                    <li>Cardboard boxes (flattened)</li>
+                    <li>Office paper</li>
+                    <li>Paper bags</li>
+                </ul>
+            </div>
+
+            <div class="guide-item">
+                <h2>Plastic</h2>
+                <p>Check the recycling symbol on plastic items. Rinse containers before recycling.</p>
+                <ul>
+                    <li>Plastic bottles (remove caps)</li>
+                    <li>Food containers</li>
+                    <li>Plastic bags (check local guidelines)</li>
+                </ul>
+            </div>
+
+            <div class="guide-item">
+                <h2>Glass</h2>
+                <p>Recycle glass bottles and jars. Remove lids and rinse before recycling.</p>
+                <ul>
+                    <li>Glass bottles</li>
+                    <li>Glass jars</li>
+                    <li>Note: Do not recycle window glass or ceramics</li>
+                </ul>
+            </div>
+
+            <div class="guide-item">
+                <h2>Metal</h2>
+                <p>Recycle clean metal cans and aluminum foil.</p>
+                <ul>
+                    <li>Aluminum cans</li>
+                    <li>Steel cans</li>
+                    <li>Clean aluminum foil</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

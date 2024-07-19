@@ -1,0 +1,60 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin-top: 20px;
+    color: #34495e;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 300px;
+    }
+}
+
+.leaflet-popup-content-wrapper {
+    background-color: #f1f8e9;
+    color: #2c3e50;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.leaflet-popup-tip {
+    background-color: #f1f8e9;
+}
+
+.locate-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.locate-btn:hover {
+    background-color: #45a049;
+}

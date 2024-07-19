@@ -12,7 +12,7 @@ function addMarker(lat, lon, name) {
         .bindPopup(name);
 }
 
-// Replace these with actual data from your database in the future
+// Will be replaced with actual data from database
 addMarker(26.9432, 75.7755, "Ecto E Waste Recycler Pvt Ltd");
 addMarker(26.2637, 73.0130, "Laxmi Plastics");
 

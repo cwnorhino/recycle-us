@@ -1,0 +1,31 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.guide-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.guide-item {
+    background-color: #f1f8e9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.guide-item h2 {
+    color: #4caf50;
+}
+
+ul {
+    padding-left: 20px;
+}
