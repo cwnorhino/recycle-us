@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Recyle-Us</h1>
+
+        <section id="app-description">
+            <h2>Your Guide to Smart Recycling</h2>
+            <p>Recycle-Us helps you make a positive impact on the environment by simplifying your recycling journey.
+                Learn how to recycle effectively, find nearby recycling centers, and track your progress!</p>
+        </section>
+
+        <section id="features">
+            <h2>Our Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Recycling Guides</h3>
+                    <p>Learn how to properly recycle different materials with our comprehensive guides.</p>
+                    <a href="{{ url_for('guides') }}" class="btn">View Guides</a>
+                </div>
+                <div class="feature-item">
+                    <h3>Recycling Center Locator</h3>
+                    <p>Find nearby recycling centers quickly and easily with our interactive map.</p>
+                    <a href="{{ url_for('map') }}" class="btn">Find Centers</a>
+                </div>
+                <div class="feature-item">
+                    <h3>Personal Recycling Tracker</h3>
+                    <p>Track your recycling habits, set goals, and earn achievements as you progress.</p>
+                    <a href="{{ url_for('profile') }}" class="btn">View Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-started">
+            <h2>Get Started Today!</h2>
+            <p>Join our community of eco-conscious individuals and start making a difference.</p>
+            <a href="#" class="btn btn-large">Sign Up Now</a>
+        </section>
+    </div>
+</body>
+
+</html>
