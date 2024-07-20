@@ -25,7 +25,7 @@
                 </div>
                 <div class="stat-item">
                     <h3>Recycling Streak</h3>
-                    <p class="stat-value">{{ user['current_streak'] }} days</p>
+                    <p class="stat-value">{{ current_streak }} days</p>
                 </div>
                 <div class="stat-item">
                     <h3>CO2 Saved</h3>
@@ -37,8 +37,9 @@
         <div class="achievements">
             <h2>Your Achievements</h2>
             <ul class="achievement-list">
-                {% for achievement in achievements %}
-                <li>{{ achievement['achievement'] }}</li>
+                {% for achievement in completed_achievements %}
+                <li>{{ achievement['achievement'] }} - {{ achievement['description'] }} (Completed on: {{
+                    achievement['date_achieved'] }})</li>
                 {% endfor %}
             </ul>
         </div>
@@ -46,11 +47,18 @@
         <div class="recycling-goals">
             <h2>Your Recycling Goals</h2>
             <ul>
+                {% for achievement in incomplete_achievements %}
+                <li>{{ achievement['achievement'] }} - {{ achievement['description'] }}</li>
+                {% endfor %}
                 {% for goal in goals %}
                 <li>{{ goal['goal'] }} (Target: {{ goal['target_date'] }})</li>
                 {% endfor %}
             </ul>
         </div>
+
+        <section id="homepage">
+            <a href="{{ url_for('home') }}" class="btn btn-large">Home</a>
+        </section>
     </div>
 </body>
 

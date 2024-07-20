@@ -8,27 +8,16 @@ def seed_database():
 
     # Sample users
     users = [
-        ('user1', 'user1@example.com', '2024-07-01'),
-        ('user2', 'user2@example.com', '2024-07-05'),
-        ('user3', 'user3@example.com', '2024-07-10'),
+        ("We Can't Code", 'wecantcode@gmail.com', '2024-07-20'),
     ]
 
     c.executemany('INSERT OR IGNORE INTO users (username, email, join_date) VALUES (?, ?, ?)', users)
 
-    # Sample recycling centers
-    centers = [
-        ('Green Recycling Center', 40.7128, -74.0060),
-        ('EcoFriendly Recycling', 34.0522, -118.2437),
-        ('Sustainable Solutions', 41.8781, -87.6298),
-    ]
-
-    c.executemany('INSERT OR IGNORE INTO centers (name, latitude, longitude) VALUES (?, ?, ?)', centers)
-
     # Sample achievements
     achievements = [
-        (1, 'Recycling Rookie', '2024-07-15'),
-        (2, 'Paper Saver', '2024-07-18'),
-        (3, 'Water Bottle Warrior', '2024-07-20'),
+        (1, '🌱 Recycling Rookie', '2024-07-15'),
+        (2, '♻️ Paper Saver', '2024-07-18'),
+        (3, '💧 Water Bottle Warrior', '2024-07-20'),
     ]
 
     c.executemany('INSERT OR IGNORE INTO achievements (user_id, achievement, date_achieved) VALUES (?, ?, ?)', achievements)
@@ -72,7 +61,7 @@ def seed_database():
                 LIMIT 30
             )
         ''', (user_id,)).fetchone()[0]
-        co2_saved = total_recycled * 2.5  # Simplified calculation
+        co2_saved = total_recycled * 0.700
 
         c.execute('UPDATE users SET total_recycled = ?, current_streak = ?, co2_saved = ? WHERE id = ?',
                   (total_recycled, streak, co2_saved, user_id))

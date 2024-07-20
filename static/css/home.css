@@ -42,3 +42,11 @@ h2 {
     text-align: center;
     margin-top: 40px;
 }
+
+.btn-logout {
+    background-color: #e74c3c;
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+}

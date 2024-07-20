@@ -1,32 +1,73 @@
-// Initialize the map
-var map = L.map('map').setView([0, 0], 2);
+let map;
+let userMarker;
 
-// Add the OpenStreetMap tile layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+function initMap() {
+    map = L.map('map').setView([0, 0], 12);
 
-// Fetch recycling centers from the server
-fetch('/get_recycling_centers')
-    .then(response => response.json())
-    .then(centers => {
-        centers.forEach(center => {
-            addMarker(center.latitude, center.longitude, center.name);
-        });
-    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-// Function to add a marker
-function addMarker(lat, lon, name) {
-    L.marker([lat, lon]).addTo(map)
-        .bindPopup(name);
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                map.setView([userLocation.lat, userLocation.lng], 12);
+
+                userMarker = L.marker([userLocation.lat, userLocation.lng], {
+                    icon: L.icon({
+                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    })
+                }).addTo(map)
+                    .bindPopup('Your Location')
+                    .openPopup();
+
+                fetchAndAddRecyclingCenters(userLocation.lat, userLocation.lng);
+            },
+            () => {
+                handleLocationError(true);
+            }
+        );
+    } else {
+        handleLocationError(false);
+    }
 }
 
-// Center the map on the user's location if available
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        map.setView([lat, lon], 10);
-        addMarker(lat, lon, "Your Location");
-    });
+function handleLocationError(browserHasGeolocation) {
+    alert(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
 }
+
+let recyclingMarkers = [];
+
+function fetchAndAddRecyclingCenters(lat, lng) {
+    // Clear existing markers
+    recyclingMarkers.forEach(marker => marker.remove());
+    recyclingMarkers = [];
+
+    fetch(`/get_recycling_centers?lat=${lat}&lng=${lng}`)
+        .then(response => response.json())
+        .then(centers => {
+            console.log("Centers received:", centers);  // Debug log
+            centers.forEach(center => {
+                console.log("Adding marker for:", center);  // Debug log
+                const marker = L.marker([center.latitude, center.longitude])
+                    .addTo(map)
+                    .bindPopup(center.name);
+                recyclingMarkers.push(marker);
+            });
+        })
+        .catch(error => console.error('Error fetching recycling centers:', error));
+}
+
+document.addEventListener('DOMContentLoaded', initMap);

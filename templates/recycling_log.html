@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Recycling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recycling_log.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Log Your Recycling</h1>
+        <div class="recycling-section">
+            <form id="recycling-log-form">
+                <select id="material" name="material" required>
+                    <option value="">Select Material</option>
+                    <option value="Paper">Paper</option>
+                    <option value="Plastic">Plastic</option>
+                    <option value="Glass">Glass</option>
+                    <option value="Metal">Metal</option>
+                </select>
+                <input type="number" id="weight" name="weight" step="0.01" min="0" required placeholder="Weight in kg">
+                <button type="submit">Log Recycling</button>
+            </form>
+            <div id="log-result"></div>
+        </div>
+
+        <!-- In templates/recycling_log.html -->
+        <div class="logs-section">
+            <h2>Your Recent Logs</h2>
+            {% if logs %}
+            <p>Number of logs: {{ logs|length }}</p>
+            {% else %}
+            <p>No logs found.</p>
+            {% endif %}
+            <table id="recycling-logs">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Material</th>
+                        <th>Weight (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log['date'] }}</td>
+                        <td>{{ log['material'] }}</td>
+                        <td>{{ log['weight'] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3">No logs available</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/recycling_log.js') }}"></script>
+</body>
+
+</html>

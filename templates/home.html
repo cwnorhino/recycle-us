@@ -9,8 +9,21 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            {% if 'user' in session %}
+            <a href="{{ url_for('logout') }}" class="btn btn-logout">Logout</a>
+            {% else %}
+            <a href="{{ url_for('userauthentication') }}" class="btn">Login/Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
     <div class="container">
+        {% if user %}
+        <h1>Welcome back, {{ user['email'] }}!</h1>
+        {% else %}
         <h1>Welcome to RecyleUs</h1>
+        {% endif %}
 
         <section id="app-description">
             <h2>Your Guide to Smart Recycling</h2>
@@ -35,6 +48,11 @@
                     <h3>Personal Recycling Tracker</h3>
                     <p>Track your recycling habits, set goals, and earn achievements as you progress.</p>
                     <a href="{{ url_for('profile') }}" class="btn">View Profile</a>
+                </div>
+                <div class="feature-item">
+                    <h3>Log Your Recycling</h3>
+                    <p>Keep track of your recycling efforts and see your impact grow!</p>
+                    <a href="{{ url_for('recycling_log') }}" class="btn">Log Recycling</a>
                 </div>
             </div>
         </section>

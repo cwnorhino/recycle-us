@@ -43,3 +43,23 @@ h2 {
 .achievement-list li {
     margin-bottom: 10px;
 }
+
+.btn {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-large {
+    font-size: 1.2em;
+    padding: 15px 30px;
+}
+
+#homepage {
+    text-align: center;
+    margin-top: 40px;
+}

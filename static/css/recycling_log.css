@@ -1,0 +1,101 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1,
+h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.recycling-section {
+    background-color: #f1f8e9;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+#recycling-log-form select,
+#recycling-log-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#recycling-log-form button {
+    display: block;
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#recycling-log-form button:hover {
+    background-color: #45a049;
+}
+
+#log-result {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logs-section {
+    margin-top: 40px;
+}
+
+#recycling-logs {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f1f8e9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#recycling-logs th,
+#recycling-logs td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#recycling-logs th {
+    background-color: #4caf50;
+    color: white;
+}
+
+#recycling-logs tr:last-child td {
+    border-bottom: none;
+}
+
+#recycling-logs tr:nth-child(even) {
+    background-color: #e8f5e9;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
