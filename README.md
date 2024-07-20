@@ -72,9 +72,9 @@ This project was developed as part of a hackathon. While it's not actively maint
 
 This project was developed by the team "We Can't Code" during the Hack to the Future Hackathon. The team members are:
 
-- [cwnorhino](https://github.com/cwnorhino)
+- [bhaskarjya](https://www.linkedin.com/in/bhaskarjya-nayananju-a63445316)
 - [slyeet03](https://github.com/slyeet03)
-- [rudracodess](https://github.com/rudracodess)
+- [rudracodess](https://www.linkedin.com/in/rudracodes)
 - [yashjswl](https://www.linkedin.com/in/yashjswl)
 
 ## Acknowledgements
