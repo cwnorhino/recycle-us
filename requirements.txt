@@ -1,0 +1,6 @@
+APScheduler
+firebase_admin 
+Flask Flask_Cors 
+googlemaps 
+Pyrebase4 
+python-dotenv
