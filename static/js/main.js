@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email: email, password: password }),
-            credentials: 'include'  // Important for sending cookies
+            credentials: 'include'
         })
             .then(response => response.json())
             .then(data => {

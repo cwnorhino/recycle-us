@@ -1,14 +1,17 @@
 import firebase_admin
 from firebase_admin import credentials, auth
 import pyrebase
+import os
+from dotenv import load_dotenv, dotenv_values 
+
+API_KEY = os.getenv("FIREBASE_API_KEY")
 
 # Initialize Firebase Admin SDK
 cred = credentials.Certificate("firebase_key.json")
 firebase_admin.initialize_app(cred)
 
-# Configure Pyrebase
 config = {
-  "apiKey": "AIzaSyCstIGa2__UjXP3LScpovLw3HO3xlrXLjw",
+  "apiKey": API_KEY,
   "authDomain": "recycleus-ef1a3.firebaseapp.com",
   "storageBucket": "recycleus-ef1a3.appspot.com",
   "messagingSenderId": "114600752569",

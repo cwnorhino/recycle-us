@@ -45,7 +45,6 @@ def get_recycling_centers():
     longitude = float(request.args.get('lng'))
     
     conn = get_db_connection()
-    # Fetch centers within a certain radius (e.g., 10km) of the given coordinates
     centers = conn.execute('''
         SELECT * FROM recycling_centers 
         WHERE (latitude BETWEEN ? AND ?) 
@@ -61,7 +60,6 @@ def get_recycling_centers():
         print(f"Found {len(centers)} centers in database")
 
     centers_list = [dict(center) for center in centers]
-    print("Centers being returned:", centers_list)  # Debug print
     return jsonify(centers_list)
 
 def fetch_recycling_centers(latitude, longitude, radius=5000):
@@ -234,8 +232,6 @@ def recycling_log():
             LIMIT 10
         ''', (user_id,)).fetchall()
         
-        print("Fetched logs:", logs)  # Add this line to debug
-        
         return render_template('recycling_log.html', logs=logs)
     finally:
         conn.close()
@@ -260,8 +256,6 @@ def log_recycling():
         # Insert recycling log
         conn.execute('INSERT INTO recycling_logs (user_id, material, weight, date) VALUES (?, ?, ?, ?)',
                      (user_id, data['material'], data['weight'], datetime.now().strftime("%Y-%m-%d")))
-        
-        print(f"Inserted log: user_id={user_id}, material={data['material']}, weight={data['weight']}")  # Add this line
         
         # Update user stats
         total_recycled = conn.execute('SELECT SUM(weight) FROM recycling_logs WHERE user_id = ?', (user_id,)).fetchone()[0]
@@ -304,6 +298,7 @@ def check_achievements(conn, user_id, material, weight):
             if total_bottles >= achievement['required_amount']:
                 conn.execute('UPDATE achievements SET completed = 1, date_achieved = ? WHERE id = ?',
                              (datetime.now().strftime("%Y-%m-%d"), achievement['id']))
+                
 if __name__ == '__main__':
     start_scheduler()
     app.run(debug=True)

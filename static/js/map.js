@@ -58,9 +58,7 @@ function fetchAndAddRecyclingCenters(lat, lng) {
     fetch(`/get_recycling_centers?lat=${lat}&lng=${lng}`)
         .then(response => response.json())
         .then(centers => {
-            console.log("Centers received:", centers);  // Debug log
             centers.forEach(center => {
-                console.log("Adding marker for:", center);  // Debug log
                 const marker = L.marker([center.latitude, center.longitude])
                     .addTo(map)
                     .bindPopup(center.name);
