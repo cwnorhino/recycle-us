@@ -68,6 +68,15 @@ RecycleUs is a web application developed for the "Hack to the Future Hackathon".
 
 This project was developed as part of a hackathon. While it's not actively maintained, contributions, suggestions, and feedback are welcome. Please open an issue or submit a pull request if you'd like to contribute.
 
+## Contributors
+
+This project was developed by the team "We Can't Code" during the Hack to the Future Hackathon. The team members are:
+
+- [cwnorhino](https://github.com/cwnorhino)
+- [slyeet03](https://github.com/slyeet03)
+- [rudracodess](https://github.com/rudracodess)
+- [yashjswl](https://www.linkedin.com/in/yashjswl)
+
 ## Acknowledgements
 
 - Hack to the Future Hackathon organizers
