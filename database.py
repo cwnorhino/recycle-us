@@ -6,13 +6,13 @@ def create_tables():
     
     # Create users table
     c.execute('''CREATE TABLE IF NOT EXISTS users
-                 (id INTEGER PRIMARY KEY,
-                  username TEXT UNIQUE NOT NULL,
-                  email TEXT UNIQUE NOT NULL,
-                  join_date TEXT NOT NULL,
-                  total_recycled REAL DEFAULT 0,
-                  current_streak INTEGER DEFAULT 0,
-                  co2_saved REAL DEFAULT 0)''')
+             (id INTEGER PRIMARY KEY,
+              username TEXT UNIQUE NOT NULL,
+              email TEXT UNIQUE NOT NULL,
+              join_date TEXT NOT NULL,
+              total_recycled REAL DEFAULT 0,
+              current_streak INTEGER DEFAULT 0,
+              co2_saved REAL DEFAULT 0)''')
     
     # Create recycling centers table
     c.execute('''CREATE TABLE IF NOT EXISTS centers

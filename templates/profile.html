@@ -11,26 +11,25 @@
 <body>
     <div class="container">
         <h1>Your Recycling Profile</h1>
-
         <div class="profile-info">
-            <h2>Welcome, We Can't Code</h2>
-            <p>Join date: 20th of July, 2024</p>
+            <h2>Welcome, {{ user['username'] }}</h2>
+            <p>Email: {{ user['email'] }}</p>
+            <p>Join date: {{ user['join_date'] }}</p>
         </div>
-
         <div class="recycling-stats">
             <h2>Your Recycling Stats</h2>
             <div class="stat-grid">
                 <div class="stat-item">
                     <h3>Total Recycled</h3>
-                    <p class="stat-value">250 kg</p>
+                    <p class="stat-value">{{ user['total_recycled'] }} kg</p>
                 </div>
                 <div class="stat-item">
                     <h3>Recycling Streak</h3>
-                    <p class="stat-value">15 days</p>
+                    <p class="stat-value">{{ user['current_streak'] }} days</p>
                 </div>
                 <div class="stat-item">
                     <h3>CO2 Saved</h3>
-                    <p class="stat-value">50 kg</p>
+                    <p class="stat-value">{{ user['co2_saved'] }} kg</p>
                 </div>
             </div>
         </div>
@@ -38,18 +37,18 @@
         <div class="achievements">
             <h2>Your Achievements</h2>
             <ul class="achievement-list">
-                <li>🌱 Recycling Rookie</li>
-                <li>🌳 Paper Saver</li>
-                <li>🚰 Water Bottle Warrior</li>
+                {% for achievement in achievements %}
+                <li>{{ achievement['achievement'] }}</li>
+                {% endfor %}
             </ul>
         </div>
 
         <div class="recycling-goals">
             <h2>Your Recycling Goals</h2>
             <ul>
-                <li>Recycle 10 kg this week</li>
-                <li>Use a reusable water bottle for 30 days</li>
-                <li>Compost food waste for a month</li>
+                {% for goal in goals %}
+                <li>{{ goal['goal'] }} (Target: {{ goal['target_date'] }})</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
