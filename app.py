@@ -10,7 +10,6 @@ import os
 from dotenv import load_dotenv, dotenv_values 
 from scheduled_tasks import start_scheduler
 
-# env
 load_dotenv() 
 
 GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_API_KEY")
